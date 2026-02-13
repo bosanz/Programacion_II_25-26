@@ -1,5 +1,7 @@
 package es.deusto.ingenieria.progii.poo.model;
 
+
+
 public class Libreria {
 	
 	// Propiedades
@@ -9,6 +11,7 @@ public class Libreria {
 	private String localidad = "";
 	private String cp = "";
 	private int precio = 0;
+	private Libro[] aLibro = new Libro[10];
 	
 	// Constructores
 	
@@ -83,6 +86,56 @@ public class Libreria {
 	public void setPrecio(int precio) {
 		if (precio > 0) {
 			this.precio = precio;
+		}
+	}
+	
+	public void añadirLibro(String titulo, String autor, int anyo, String isbn) {
+		Libro l = new Libro(titulo, autor, anyo, isbn);
+		this.añadirLibro(l);
+	}
+	
+	public void añadirLibro(Libro l) {
+		// Recorremos el array de libros
+//		for(int i = 0; i < this.aLibro.length; i++) {
+//			// Si la posición del array está vacía
+//			if (aLibro[i] == null) {
+//				aLibro[i] = l; // Le asignamos el libro
+//				break;
+//			}			
+//		}
+		boolean libroAlmacenado = false;
+		int i = 0;
+		while(i < aLibro.length && !libroAlmacenado) {
+			// Si la posición del array está vacía
+			if (aLibro[i] == null) {
+				aLibro[i] = l; // Le asignamos el libro
+				libroAlmacenado = true;
+			}
+			i++;
+		}
+		
+		if (i == aLibro.length) {
+			System.out.println("La librería está completa");
+		} else {
+			System.out.println("Libro "+ l.getTitulo() +" añadido correctamente");
+		}
+	}
+	
+	public void borrarLibro(String isbn) {
+		for(int i = 0; i < this.aLibro.length; i++) {
+			if (aLibro[i].getIsbn() == isbn) {
+				aLibro[i] = null;
+				System.out.println("Libro con ISBN " + isbn + " elminado.");
+				return;
+			}
+		}
+		
+		System.out.println("Libro no encontrado.");
+	}
+	
+	public void mostrarLibreria() {
+		for(int i = 0; i < this.aLibro.length; i++) {
+			System.out.println(aLibro[i]);
 		}
 	}
 	
