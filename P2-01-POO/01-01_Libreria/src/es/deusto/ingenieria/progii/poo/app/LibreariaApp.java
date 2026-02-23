@@ -1,5 +1,7 @@
 package es.deusto.ingenieria.progii.poo.app;
 
+import java.util.ArrayList;
+
 import es.deusto.ingenieria.progii.poo.model.Libreria;
 
 public class LibreariaApp {
@@ -16,15 +18,16 @@ public class LibreariaApp {
 		l1.añadirLibro("c", "c", 206, "dasdasf");
 		
 		l1.mostrarLibreria();
+//		
+//		l1.borrarLibro("dasdasf");
+//		
+//		l1.mostrarLibreria();
+//	
+//	
+//		l1.añadirLibro("d", "d", 206, "dasdasf");
+//		
+//		l1.mostrarLibreria();
 		
-		l1.borrarLibro("dasdasf");
-		
-		l1.mostrarLibreria();
-	
-	
-		l1.añadirLibro("d", "d", 206, "dasdasf");
-		
-		l1.mostrarLibreria();
 	}
 
 }
