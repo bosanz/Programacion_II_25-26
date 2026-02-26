@@ -44,7 +44,9 @@ public class Gestion {
 	private static int indexOfIgnoreCase(String[] aPlanetas, String nombre) {
 		if (nombre == null) return -1;
 		for (int i = 0; i < aPlanetas.length; i++) {
-			if (aPlanetas[i] != null && aPlanetas[i].equalsIgnoreCase(nombre.trim())) return i;
+			if (aPlanetas[i] != null && aPlanetas[i].equalsIgnoreCase(nombre.trim())) {
+				return i;
+			}
 		}
 		return -1;
 	}
@@ -60,8 +62,12 @@ public class Gestion {
 	private static float probDeObservacion(Observacion o, float[][] aProb, String[] aPlanetas, Ruta[] aRutas) {
         int i = indexOfIgnoreCase(aPlanetas, o.getRutaOrigen());
         int j = indexOfIgnoreCase(aPlanetas, o.getRutaDestino());
-        if (i < 0 || j < 0) return 0f;
-        if (rutaControlada(aRutas, o.getRutaOrigen(), o.getRutaDestino())) return 0f;
+        if (i < 0 || j < 0) {
+        	return 0f;
+        }
+        if (rutaControlada(aRutas, o.getRutaOrigen(), o.getRutaDestino())) {
+        	return 0f;
+        }
         return aProb[i][j];
     }
 

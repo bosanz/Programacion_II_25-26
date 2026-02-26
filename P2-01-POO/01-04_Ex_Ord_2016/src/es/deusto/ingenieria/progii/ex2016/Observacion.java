@@ -22,8 +22,11 @@ class Observacion {
 		this.fechaObservacion = DEF_FECHA;
 	}
 
-	public Observacion(String planeta, String rutaOrigen, String rutaDestino,
-			String descripcionObservacion, int fechaObservacion) {
+	public Observacion(String planeta, 
+			String rutaOrigen, 
+			String rutaDestino,
+			String descripcionObservacion, 
+			int fechaObservacion) {
 		this(); // arranca con defaults
 		// set* ya valida; si algo no es válido, conserva el valor anterior (default)
 		setPlaneta(planeta);
@@ -42,23 +45,33 @@ class Observacion {
 
 	// Setters (validan; si no es válido, NO cambian el valor)
 	public void setPlaneta(String planeta) {
-		if (isValidString(planeta)) this.planeta = planeta.trim();
+		if (isValidString(planeta)) {
+			this.planeta = planeta.trim();
+		}
 	}
 
 	public void setRutaOrigen(String rutaOrigen) {
-		if (isValidString(rutaOrigen)) this.rutaOrigen = rutaOrigen.trim();
+		if (isValidString(rutaOrigen)) {
+			this.rutaOrigen = rutaOrigen.trim();
+		}
 	}
 
 	public void setRutaDestino(String rutaDestino) {
-		if (isValidString(rutaDestino)) this.rutaDestino = rutaDestino.trim();
+		if (isValidString(rutaDestino)) {
+			this.rutaDestino = rutaDestino.trim();
+		}
 	}
 
 	public void setDescripcionObservacion(String descripcionObservacion) {
-		if (isValidString(descripcionObservacion)) this.descripcionObservacion = descripcionObservacion.trim();
+		if (isValidString(descripcionObservacion)) {
+			this.descripcionObservacion = descripcionObservacion.trim();
+		}
 	}
 
 	public void setFechaObservacion(int fechaObservacion) {
-		if (isValidFechaAAAAMMDD(fechaObservacion)) this.fechaObservacion = fechaObservacion;
+		if (isValidFechaAAAAMMDD(fechaObservacion)) {
+			this.fechaObservacion = fechaObservacion;
+		}
 	}
 
 	// leer: pide hasta que sea correcto (para cada campo)
