@@ -6,6 +6,7 @@ public class Pelicula {
 	private int duracion;
 	private String director;
 	private int edadMinima;
+	private double precio;
 	
 	public Pelicula() {
 		this.titulo = "";
@@ -15,12 +16,13 @@ public class Pelicula {
 	}
 	
 	
-	public Pelicula(String titulo, int duracion, String director, int edadMinima) {
+	public Pelicula(String titulo, int duracion, String director, int edadMinima, double precio) {
 		super();
 		this.titulo = titulo;
 		this.duracion = duracion;
 		this.director = director;
 		this.edadMinima = edadMinima;
+		this.precio = precio;
 	}
 	
 	public Pelicula(Pelicula p) {
@@ -29,6 +31,7 @@ public class Pelicula {
 		this.duracion = p.getDuracion();
 		this.director = p.getDirector();
 		this.edadMinima = p.getEdadMinima();
+		this.precio = p.getPrecio();
 	}
 	
 	public String getTitulo() {
@@ -56,11 +59,23 @@ public class Pelicula {
 		this.edadMinima = edadMinima;
 	}
 
+	public double getPrecio() {
+		return precio;
+	}
 
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "Titulo=" + titulo + ", duracion=" + duracion + ", director=" + director + ", edadMinima="
 				+ edadMinima;
 	}
+
+
+
 	
 }

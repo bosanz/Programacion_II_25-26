@@ -11,6 +11,8 @@ public class Sala {
 	private int capacidadSala = NUMERO_FILAS * NUMERO_COLUMNAS;
 	private int asientosOcupados = 0;
 	
+	private Pelicula pelicula;
+	
 	// Asiento[][] aAsiento = new Asiento[][]();
 	private ArrayList<ArrayList<Asiento>> aAsientos = new ArrayList<ArrayList<Asiento>>(NUMERO_FILAS);
 	
@@ -30,8 +32,12 @@ public class Sala {
 	
 	public Sala() {
 		inicializarSala();
+		pelicula = null;
 	}
 	
+	public Sala(Pelicula p) {
+		this.pelicula = p;
+	}
 	public boolean hayAsientosLibres() {
 		if (capacidadSala == asientosOcupados){
 			return false;
@@ -40,13 +46,17 @@ public class Sala {
 		}
 	}
 	
-	public Asiento sentar() {
+	public Asiento sentarEspectador(Espectador e) {
 		Random r = new Random();
 		
 		// Ver si hay capacidad en el cine.
 		if (!hayAsientosLibres()){
 			return null;
 		}
+		
+		// Verificamos si el espectador tiene dinero y edad mínima
+		if (e.getEdad() < pelicula.getEdadMinima()) return null;
+        if (e.getDinero() < pelicula.getPrecio()) return null;
 		
 		int filaAleatoria = r.nextInt(NUMERO_FILAS);
 		int columnaAleatoria = r.nextInt(NUMERO_COLUMNAS);
@@ -69,6 +79,23 @@ public class Sala {
 	
 	public void mostrarOcupacionSala() {
 		System.out.println("Ocupación de la sala: " + this.asientosOcupados/this.capacidadSala);
+	}
+
+	public Pelicula getPelicula() {
+		return pelicula;
+	}
+
+	public void setPelicula(Pelicula pelicula) {
+		this.pelicula = pelicula;
+	}
+	
+	public void mostrarSala() {
+		for (ArrayList<Asiento> fila : this.aAsientos) {
+			for (Asiento a : fila) {
+				System.out.print(a + " ");
+			}
+			System.out.println();
+		}
 	}
 
 }
