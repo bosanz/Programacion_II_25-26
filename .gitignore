@@ -29,3 +29,8 @@ replay_pid*
 **/bin/
 *.class
 .metadata/
+
+# Eclipse
+.project
+.classpath
+.settings/
