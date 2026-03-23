@@ -88,7 +88,7 @@ public class Evento implements Reservable {
 			return;
 
 		double descuento = 0.0;
-		if (tipo == TipoEvento.ENTRADA)
+		if (this.tipo == TipoEvento.ENTRADA)
 			descuento = 0.10 * cantidad;
 		else if (tipo == TipoEvento.INTERNO)
 			descuento = 0.30 * cantidad;
